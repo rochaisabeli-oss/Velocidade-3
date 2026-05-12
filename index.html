@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Multa</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Verificador de Multa</h2>
+
+    <label>Velocidade Permitida:</label>
+    <input type="number" id="permitida" placeholder="Digite a velocidade">
+
+    <label>Velocidade do Condutor:</label>
+    <input type="number" id="condutor" placeholder="Digite a velocidade">
+
+    <button onclick="verificarMulta()">Verificar</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function verificarMulta() {
+      let permitida = Number(document.getElementById("permitida").value);
+      let condutor = Number(document.getElementById("condutor").value);
+      let resultado = document.getElementById("resultado");
+
+      if (condutor <= permitida) {
+        resultado.innerHTML = "Sem Multa";
+      } 
+      else if (condutor <= permitida * 1.2) {
+        resultado.innerHTML = "Multa Leve";
+      } 
+      else {
+        resultado.innerHTML = "Multa Grave";
+      }
+    }
+  </script>
+
+</body>
+</html>
